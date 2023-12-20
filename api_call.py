@@ -16,7 +16,7 @@ async def root():
 @app.post("/gesture-recognizer/process-image")
 async def analyze_image(file: UploadFile = File(...)):
     try:
-        print("Image received")
+        # print("Image received")
         contents = file.file.read()
         nparr = np.frombuffer(contents, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_UNCHANGED)
@@ -27,7 +27,7 @@ async def analyze_image(file: UploadFile = File(...)):
 
         # Call the main function from your app
         result = main(img)
-        print(result)
+        # print(result)
         # json should be returned as follows
         # { "gesture": result[0]], "confidence": result[1]}
         return JSONResponse(content={"gesture": result[0], "confidence": result[1]})
