@@ -1,8 +1,6 @@
 # import the necessary packages
-from dataclasses import dataclass
-from fastapi import Depends, FastAPI, Form, HTTPException, UploadFile, File
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 import numpy as np
 import cv2
 from app import main
